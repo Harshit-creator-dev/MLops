@@ -3,12 +3,10 @@
 
 def is_valid_order(order):
     "True if the order passes every rule."
-    if order["distance_km"] <= 0:
-        return False
-    if order["prep_time_min"] < 0:
-        return False
-    if order["traffic_level"] not in (1, 2, 3):
-        return False
-    if order["rain"] not in (0, 1):
-        return False
-    return True
+    # TODO: write the four checks, return False when one fails
+    return True if (
+        order["distance_km"] > 0
+        and order["prep_time_min"] >= 0
+        and order["traffic_level"] in (1, 2, 3)
+        and order["rain"] in (0, 1)
+    ) else False
